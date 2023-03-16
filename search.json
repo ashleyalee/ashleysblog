@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/dh-140-final-AL.html",
+    "href": "posts/dh-140-final-AL.html",
+    "title": "DH140 Final Project",
+    "section": "",
+    "text": "Ashley Lee\n\n\nThe college application process can be a daunting yet exciting process. Throughout the process, applicants are researching schools to apply to and fields to major in. And once this is all finished, applicants must go through another process of deciding which school to commit to, which is not an easy decision to make. Throughout college as well, it is not uncommon for people to change majors, sometimes completely changing their career path or even transferring colleges. These changes are motivated by various reasons, some being salary, interest, or career opportunities.\nAs I am approaching the end of my senior year and about to graduate, this topic has been on my mind more frequently. I also find this to be a topic of discussion amongst most of my conversations. These are all factors that I considered when applying to college and am now considering while on the job hunt, so researching more about this can allow me to have more insight on my post-grad options and how much weight my college career has on my future.\nThis research will explore the various factors that affect salary after graduation. Some of these factors include college attended, major(s), and field(s) studied. This research will allow new graduates to have a better understanding of their post-grad future and how their salary can be affected by their college career and field of choice.\nDatasets:\nDegrees that Pay Back: This dataset shows the starting and mid-career median salaries of each undergraduate major. This data was and is based on survey data from Payscale, Inc. We will explore this dataset to observe the relationship between undergraduate major and salary. https://www.kaggle.com/datasets/wsj/college-salaries?select=degrees-that-pay-back.csv\nSalaries by College Type: This dataset classifies each school with a type (Ivy League, Engineering, Liberal Arts, etc.) and shows its respective median salary. This dataset can be used to explore the relationship between school types and salary. https://www.kaggle.com/datasets/wsj/college-salaries?select=salaries-by-college-type.csv\n\n\n\nCreate another section in your notebook that explores and presents information about your data\nThis can include summary information about the data, summary statistics where appropriate, an identification of where there may be missing/incorrect/outlier data, and data preprocessing It should include at least 4 exploratory data visualizations This section does not need to be polished yet, but it should be a good foundation\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndegrees = pd.read_csv('degrees-that-pay-back.csv')\nsalaries = pd.read_csv('salaries-by-college-type.csv')\n\n#plt.bar(degrees['Undergraduate Major'], degrees['Starting Median Salary'])\n#plt.hist(salaries['Starting Median Salary'], bins=100, edgecolor='black')\n\n\nsalaries\n\n\n\n\n\n  \n    \n      \n      School Name\n      School Type\n      Starting Median Salary\n      Mid-Career Median Salary\n      Mid-Career 10th Percentile Salary\n      Mid-Career 25th Percentile Salary\n      Mid-Career 75th Percentile Salary\n      Mid-Career 90th Percentile Salary\n    \n  \n  \n    \n      0\n      Massachusetts Institute of Technology (MIT)\n      Engineering\n      $72,200.00\n      $126,000.00\n      $76,800.00\n      $99,200.00\n      $168,000.00\n      $220,000.00\n    \n    \n      1\n      California Institute of Technology (CIT)\n      Engineering\n      $75,500.00\n      $123,000.00\n      NaN\n      $104,000.00\n      $161,000.00\n      NaN\n    \n    \n      2\n      Harvey Mudd College\n      Engineering\n      $71,800.00\n      $122,000.00\n      NaN\n      $96,000.00\n      $180,000.00\n      NaN\n    \n    \n      3\n      Polytechnic University of New York, Brooklyn\n      Engineering\n      $62,400.00\n      $114,000.00\n      $66,800.00\n      $94,300.00\n      $143,000.00\n      $190,000.00\n    \n    \n      4\n      Cooper Union\n      Engineering\n      $62,200.00\n      $114,000.00\n      NaN\n      $80,200.00\n      $142,000.00\n      NaN\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      264\n      Austin Peay State University\n      State\n      $37,700.00\n      $59,200.00\n      $32,200.00\n      $40,500.00\n      $73,900.00\n      $96,200.00\n    \n    \n      265\n      Pittsburg State University\n      State\n      $40,400.00\n      $58,200.00\n      $25,600.00\n      $46,000.00\n      $84,600.00\n      $117,000.00\n    \n    \n      266\n      Southern Utah University\n      State\n      $41,900.00\n      $56,500.00\n      $30,700.00\n      $39,700.00\n      $78,400.00\n      $116,000.00\n    \n    \n      267\n      Montana State University - Billings\n      State\n      $37,900.00\n      $50,600.00\n      $22,600.00\n      $31,800.00\n      $78,500.00\n      $98,900.00\n    \n    \n      268\n      Black Hills State University\n      State\n      $35,300.00\n      $43,900.00\n      $27,000.00\n      $32,200.00\n      $60,900.00\n      $87,600.00\n    \n  \n\n269 rows × 8 columns\n\n\n\n\n\n\nCreate a section in your notebook that includes the beginnings of your analysis\nThis should include code for data analysis directly relevant to your question(s) of interest Include an additional 4 data visualizations that are directly relevant to your topic Or describe 4 data visualizations that you want to make This section does not need to be polished yet, but it should be a good foundation"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ashleysblog",
+    "section": "",
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMar 16, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDH140 Final Project\n\n\n\n\n\nBlog post for DH140 final project\n\n\n\n\n\n\nMar 15, 2023\n\n\nAshley Lee\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  }
+]
