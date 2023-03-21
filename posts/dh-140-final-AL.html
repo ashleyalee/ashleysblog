@@ -253,14 +253,14 @@ Winter 2023
 <section id="data-cleaning-and-processing" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning-and-processing">Data Cleaning and Processing</h3>
 <p>During this step, the data is cleaned and process for the proceeding analysis stage. The data was not easily usable and not in the right format to be used. For example, all the numbers needed to be converted to be of type numeric.</p>
-<div class="cell" data-execution_count="27">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load all necessary packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="28">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>degrees <span class="op">=</span> pd.read_csv(<span class="st">'degrees-that-pay-back.csv'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>salaries <span class="op">=</span> pd.read_csv(<span class="st">'salaries-by-college-type.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>region <span class="op">=</span> pd.read_csv(<span class="st">'salaries-by-region.csv'</span>)</span>
@@ -297,9 +297,9 @@ Winter 2023
 </section>
 <section id="dataset-1---degrees" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-1---degrees">Dataset #1 - Degrees</h3>
-<div class="cell" data-execution_count="29">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>degrees.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="10">
 
 <div>
 
@@ -378,117 +378,12 @@ Winter 2023
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>degrees.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Starting Median Salary</th>
-      <th>Mid-Career Median Salary</th>
-      <th>Percent change from Starting to Mid-Career Salary</th>
-      <th>Mid-Career 10th Percentile Salary</th>
-      <th>Mid-Career 25th Percentile Salary</th>
-      <th>Mid-Career 75th Percentile Salary</th>
-      <th>Mid-Career 90th Percentile Salary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>50.000000</td>
-      <td>50.00000</td>
-      <td>50.000000</td>
-      <td>50.000000</td>
-      <td>50.000000</td>
-      <td>50.000000</td>
-      <td>50.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>44310.000000</td>
-      <td>74786.00000</td>
-      <td>69.274000</td>
-      <td>43408.000000</td>
-      <td>55988.000000</td>
-      <td>102138.000000</td>
-      <td>142766.000000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>9360.866217</td>
-      <td>16088.40386</td>
-      <td>17.909908</td>
-      <td>12000.779567</td>
-      <td>13936.951911</td>
-      <td>20636.789914</td>
-      <td>27851.249267</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>34000.000000</td>
-      <td>52000.00000</td>
-      <td>23.400000</td>
-      <td>26700.000000</td>
-      <td>36500.000000</td>
-      <td>70500.000000</td>
-      <td>96400.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>37050.000000</td>
-      <td>60825.00000</td>
-      <td>59.125000</td>
-      <td>34825.000000</td>
-      <td>44975.000000</td>
-      <td>83275.000000</td>
-      <td>124250.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>40850.000000</td>
-      <td>72000.00000</td>
-      <td>67.800000</td>
-      <td>39400.000000</td>
-      <td>52450.000000</td>
-      <td>99400.000000</td>
-      <td>145500.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>49875.000000</td>
-      <td>88750.00000</td>
-      <td>82.425000</td>
-      <td>49850.000000</td>
-      <td>63700.000000</td>
-      <td>118750.000000</td>
-      <td>161750.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>74300.000000</td>
-      <td>107000.00000</td>
-      <td>103.500000</td>
-      <td>71900.000000</td>
-      <td>87300.000000</td>
-      <td>145000.000000</td>
-      <td>210000.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-</div>
 </section>
 <section id="dataset-2---salaries" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-2---salaries">Dataset #2 - Salaries</h3>
-<div class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>salaries.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>salaries.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
 
 <div>
 
@@ -567,108 +462,12 @@ Winter 2023
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>salaries.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Starting Median Salary</th>
-      <th>Mid-Career Median Salary</th>
-      <th>Mid-Career 10th Percentile Salary</th>
-      <th>Mid-Career 25th Percentile Salary</th>
-      <th>Mid-Career 75th Percentile Salary</th>
-      <th>Mid-Career 90th Percentile Salary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>269.000000</td>
-      <td>269.000000</td>
-      <td>231.000000</td>
-      <td>269.000000</td>
-      <td>269.000000</td>
-      <td>231.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>46068.401487</td>
-      <td>83932.342007</td>
-      <td>44250.649351</td>
-      <td>60373.234201</td>
-      <td>116275.092937</td>
-      <td>157705.627706</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>6412.616242</td>
-      <td>14336.191107</td>
-      <td>8719.612427</td>
-      <td>11381.348857</td>
-      <td>22952.334054</td>
-      <td>34823.348157</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>34800.000000</td>
-      <td>43900.000000</td>
-      <td>22600.000000</td>
-      <td>31800.000000</td>
-      <td>60900.000000</td>
-      <td>87600.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>42000.000000</td>
-      <td>74000.000000</td>
-      <td>39000.000000</td>
-      <td>53200.000000</td>
-      <td>100000.000000</td>
-      <td>136000.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>44700.000000</td>
-      <td>81600.000000</td>
-      <td>43100.000000</td>
-      <td>58400.000000</td>
-      <td>113000.000000</td>
-      <td>153000.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>48300.000000</td>
-      <td>92200.000000</td>
-      <td>47400.000000</td>
-      <td>65100.000000</td>
-      <td>126000.000000</td>
-      <td>170500.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>75500.000000</td>
-      <td>134000.000000</td>
-      <td>80000.000000</td>
-      <td>104000.000000</td>
-      <td>234000.000000</td>
-      <td>326000.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-</div>
 </section>
 <section id="dataset-3---region" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-3---region">Dataset #3 - Region</h3>
-<div class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>region.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>region.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
 
 <div>
 
@@ -747,180 +546,84 @@ Winter 2023
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>region.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Starting Median Salary</th>
-      <th>Mid-Career Median Salary</th>
-      <th>Mid-Career 10th Percentile Salary</th>
-      <th>Mid-Career 25th Percentile Salary</th>
-      <th>Mid-Career 75th Percentile Salary</th>
-      <th>Mid-Career 90th Percentile Salary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>320.000000</td>
-      <td>320.000000</td>
-      <td>273.000000</td>
-      <td>320.000000</td>
-      <td>320.000000</td>
-      <td>273.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>46253.437500</td>
-      <td>83934.375000</td>
-      <td>45253.113553</td>
-      <td>60614.062500</td>
-      <td>116496.875000</td>
-      <td>160442.124542</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>6617.038001</td>
-      <td>15191.443091</td>
-      <td>8562.834333</td>
-      <td>11786.436432</td>
-      <td>24104.265214</td>
-      <td>36785.768186</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>34500.000000</td>
-      <td>43900.000000</td>
-      <td>25600.000000</td>
-      <td>31800.000000</td>
-      <td>60900.000000</td>
-      <td>85700.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>42000.000000</td>
-      <td>73725.000000</td>
-      <td>39500.000000</td>
-      <td>53100.000000</td>
-      <td>99825.000000</td>
-      <td>136000.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>45100.000000</td>
-      <td>82700.000000</td>
-      <td>43700.000000</td>
-      <td>59400.000000</td>
-      <td>113000.000000</td>
-      <td>154000.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>48900.000000</td>
-      <td>93250.000000</td>
-      <td>48900.000000</td>
-      <td>66025.000000</td>
-      <td>129000.000000</td>
-      <td>178000.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>75500.000000</td>
-      <td>134000.000000</td>
-      <td>80000.000000</td>
-      <td>104000.000000</td>
-      <td>234000.000000</td>
-      <td>326000.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-</div>
 </section>
 <section id="exploratory-data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis"><em>Exploratory Data Analysis</em></h2>
 <p>We begin by conducting exploratory data analysis to answer our research question. Specifically, in this process, we are interested in learning about general salary statistics and which majors and types of schools will lead to higher salaries.</p>
 <p><em>Please note that all datasets had information on median salary, so we are only exploring median salary from the Salaries dataset. We will further analyze both in the later parts of the project.</em></p>
-<div class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall starting median salary</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>salaries[<span class="st">'Starting Median Salary'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall starting median salary</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>salaries[<span class="st">'Starting Median Salary'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>46068.40148698885</code></pre>
 </div>
 </div>
 <p>From the plot below, we can see that the median starting salary is right-skewed, with most starting median salaries being around \$40000 - \$45,000.</p>
-<div class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.hist(salaries[<span class="st">'Starting Median Salary'</span>])</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Salary ($)'</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Starting Median Salary (by Degree)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.hist(salaries[<span class="st">'Starting Median Salary'</span>])</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Salary ($)'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Starting Median Salary (by Degree)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>Text(0.5, 1.0, 'Starting Median Salary (by Degree)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="dh-140-final-AL_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
+<p><img src="dh-140-final-AL_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Now we can explore the mid-career median salary to see the shift from the starting median salary.</p>
-<div class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall mid-career median salary</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>salaries[<span class="st">'Mid-Career Median Salary'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall mid-career median salary</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>salaries[<span class="st">'Mid-Career Median Salary'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>83932.34200743494</code></pre>
 </div>
 </div>
 <p>Typically, the median salary shifts later in the career. From this Mid-Career Median Salary graph, we can see that the salary has shifted to be around \$80,000, which is almost double what is shown in the Starting Median Salary graph (above). The mean has also increased by about \$37,000.</p>
-<div class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.hist(salaries[<span class="st">'Mid-Career Median Salary'</span>])</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Salary ($)'</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Mid-Career Median Salary (by Degree)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.hist(salaries[<span class="st">'Mid-Career Median Salary'</span>])</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Salary ($)'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Mid-Career Median Salary (by Degree)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>Text(0.5, 1.0, 'Mid-Career Median Salary (by Degree)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="dh-140-final-AL_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
+<p><img src="dh-140-final-AL_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Additionally, we can explore the impact of a college’s region on salary. According to the graph, schools in California and Northeastern have a higher starting median salary.</p>
-<div class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group the data by region type and calculate the median starting salary</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>grouped_region <span class="op">=</span> region.groupby(<span class="st">'Region'</span>)[<span class="st">'Starting Median Salary'</span>].median().reset_index()</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a bar plot</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.bar(grouped_region[<span class="st">'Region'</span>], grouped_region[<span class="st">'Starting Median Salary'</span>])</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'School Type'</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Starting Median Salary ($)'</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Median Starting Salary by College Type'</span>)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group the data by region type and calculate the median starting salary</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>grouped_region <span class="op">=</span> region.groupby(<span class="st">'Region'</span>)[<span class="st">'Starting Median Salary'</span>].median().reset_index()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a bar plot</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>plt.bar(grouped_region[<span class="st">'Region'</span>], grouped_region[<span class="st">'Starting Median Salary'</span>])</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'School Type'</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Starting Median Salary ($)'</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Median Starting Salary by College Type'</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="dh-140-final-AL_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+<p><img src="dh-140-final-AL_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Lastly, as part of our exploratory data analysis, we explore the relationship between starting and mid-career median salaries by major. There is a linear relationship between these two variables; with a higher starting median salary, the mid-career median salary also usually ends up being higher.</p>
-<div class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(degrees[<span class="st">'Starting Median Salary'</span>], degrees[<span class="st">'Mid-Career Median Salary'</span>])</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Starting Median Salary ($)'</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Mid-Career Median Salary ($)'</span>)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Starting vs. Mid-Career Salaries'</span>)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Set x-axis tick values</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="dv">40000</span>, <span class="dv">120000</span>, <span class="dv">20000</span>))</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set y-axis tick values</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="dv">50000</span>, <span class="dv">160000</span>, <span class="dv">20000</span>))</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(degrees[<span class="st">'Starting Median Salary'</span>], degrees[<span class="st">'Mid-Career Median Salary'</span>])</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Starting Median Salary ($)'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Mid-Career Median Salary ($)'</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Starting vs. Mid-Career Salaries'</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Set x-axis tick values</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="dv">40000</span>, <span class="dv">120000</span>, <span class="dv">20000</span>))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set y-axis tick values</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="dv">50000</span>, <span class="dv">160000</span>, <span class="dv">20000</span>))</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="dh-140-final-AL_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+<p><img src="dh-140-final-AL_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -928,32 +631,32 @@ Winter 2023
 <h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
 <p>After conducting introductory analysis, we have a better idea of our data and now we can use this information to dive deeper into our datasets to answer our research question.</p>
 <p>First, we further explore the progression from starting to mid-career median salary. In general, we can see that mid-career salaries are much higher than starting salaries. While this doesn’t fully answer our research question of factors that affect salary, having knowledge of this general increase allows us to know that our starting salary is not fixed for the rest of our careers. In fact, most salaries doubled over time, as shown by the plot below.</p>
-<div class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a figure and axis</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the histograms with transparency to show overlaps</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>ax.hist(salaries[<span class="st">'Starting Median Salary'</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Starting Median Salary'</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>ax.hist(salaries[<span class="st">'Mid-Career Median Salary'</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Mid-Career Median Salary'</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># set labels and title</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Salary ($)'</span>)</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">''</span>)</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Starting vs. Mid-Career Salaries'</span>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># add legend</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co"># show the plot</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a figure and axis</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the histograms with transparency to show overlaps</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>ax.hist(salaries[<span class="st">'Starting Median Salary'</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Starting Median Salary'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>ax.hist(salaries[<span class="st">'Mid-Career Median Salary'</span>], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Mid-Career Median Salary'</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># set labels and title</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Salary ($)'</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">''</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Starting vs. Mid-Career Salaries'</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># add legend</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co"># show the plot</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="dh-140-final-AL_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+<p><img src="dh-140-final-AL_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>To further explore the relationship between <strong>major studied</strong> and salary, we can identify the top ten earning majors according to their mid-career median salaries.</p>
-<div class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>top_majors <span class="op">=</span> degrees.sort_values(by<span class="op">=</span><span class="st">'Mid-Career Median Salary'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(top_majors[<span class="st">'Undergraduate Major'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>top_majors <span class="op">=</span> degrees.sort_values(by<span class="op">=</span><span class="st">'Mid-Career Median Salary'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(top_majors[<span class="st">'Undergraduate Major'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>8       Chemical Engineering
 12      Computer Engineering
@@ -968,33 +671,33 @@ Winter 2023
 Name: Undergraduate Major, dtype: object</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>top_majors <span class="op">=</span> degrees.sort_values(by<span class="op">=</span><span class="st">'Mid-Career Median Salary'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.bar(top_majors[<span class="st">'Undergraduate Major'</span>], top_majors[<span class="st">'Mid-Career Median Salary'</span>])</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Undergraduate Major'</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Mid-Career Median Salary ($)'</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Top 10 Highest Paying Majors'</span>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>top_majors <span class="op">=</span> degrees.sort_values(by<span class="op">=</span><span class="st">'Mid-Career Median Salary'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.bar(top_majors[<span class="st">'Undergraduate Major'</span>], top_majors[<span class="st">'Mid-Career Median Salary'</span>])</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Undergraduate Major'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Mid-Career Median Salary ($)'</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Top 10 Highest Paying Majors'</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="dh-140-final-AL_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+<p><img src="dh-140-final-AL_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>From this graph, we can see that <strong>Chemical Engineering, Computer Engineering, and Electrical Engineering</strong> have the highest mid-career median salaries, all totaling over \$100,000.</p>
 <p>While major plays an important role in determining career salary, we can further explore to see if salary is affected by other factors, such as the <strong>type of school</strong> attended. From the graph below, we can see that students that attended <strong>engineering or ivy league schools</strong> typically earned higher median mid-career salaries after graduation.</p>
-<div class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group the data by college type and calculate the median starting salary</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>grouped_salaries <span class="op">=</span> salaries.groupby(<span class="st">'School Type'</span>)[<span class="st">'Mid-Career Median Salary'</span>].median().reset_index()</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a bar plot</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.bar(grouped_salaries[<span class="st">'School Type'</span>], grouped_salaries[<span class="st">'Mid-Career Median Salary'</span>])</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'School Type'</span>)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Mid-Career Median Salary ($)'</span>)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Median Mid-Career Salary by College Type'</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group the data by college type and calculate the median starting salary</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>grouped_salaries <span class="op">=</span> salaries.groupby(<span class="st">'School Type'</span>)[<span class="st">'Mid-Career Median Salary'</span>].median().reset_index()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a bar plot</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>plt.bar(grouped_salaries[<span class="st">'School Type'</span>], grouped_salaries[<span class="st">'Mid-Career Median Salary'</span>])</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'School Type'</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Mid-Career Median Salary ($)'</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Median Mid-Career Salary by College Type'</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="dh-140-final-AL_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+<p><img src="dh-140-final-AL_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -1005,93 +708,93 @@ Name: Undergraduate Major, dtype: object</code></pre>
 <section id="salary-by-region" class="level3">
 <h3 class="anchored" data-anchor-id="salary-by-region">Salary by Region</h3>
 <p>When examining the region factor, we can see that the location the college is situated in does not have as significant of an impact on salary. From observing the double bar graph below, it is shown that schools in California and Northeastern regions typically have higher starting and mid-career median salaries, however, this is a small difference and not too significant. We can also note that there is no significant difference in region when comparing starting and mid-career salaries. Salary growth is also consistent across the regions; if a region has a higher starting salary, it typically has a higher mid-career salary as well.</p>
-<div class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>salaries_by_region <span class="op">=</span> region.groupby(<span class="st">'Region'</span>)[[<span class="st">'Starting Median Salary'</span>, <span class="st">'Mid-Career Median Salary'</span>]].median()</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create a bar chart to compare salaries by region</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>salaries_by_region.plot(kind<span class="op">=</span><span class="st">'bar'</span>, rot<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># customize the plot</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Region'</span>)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Median Salary ($)'</span>)</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Median Starting and Mid-Career Salaries by Region'</span>)</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.5</span>,<span class="dv">1</span>))</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>salaries_by_region <span class="op">=</span> region.groupby(<span class="st">'Region'</span>)[[<span class="st">'Starting Median Salary'</span>, <span class="st">'Mid-Career Median Salary'</span>]].median()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create a bar chart to compare salaries by region</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>salaries_by_region.plot(kind<span class="op">=</span><span class="st">'bar'</span>, rot<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># customize the plot</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Region'</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Median Salary ($)'</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Median Starting and Mid-Career Salaries by Region'</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.5</span>,<span class="dv">1</span>))</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="dh-140-final-AL_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+<p><img src="dh-140-final-AL_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="salary-by-school-type" class="level3">
 <h3 class="anchored" data-anchor-id="salary-by-school-type">Salary by School Type</h3>
 <p>When examining the school type factor, we can see that school type does indeed have an effect on salary. According to the side-by-side box plots below, Ivy League and Engineering schools typically have higher mid-career median salaries, with both types yielding median salaries over \$100,000. On the other hand, State schools typically have lower mid-career median salaries, around high \$70,000s. This suggests that the choice of college type may have a significant impact on one’s earning potential. However, it is also important to know that while the differences are quite clear, it is still possible to have a high salary at a school that is not an ivy-league or engineering focused. For example, when looking at the box plot for State schools, there are outliers, which suggests it is still possible to have a higher earning salary at other types of schools.</p>
-<div class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mid_career_salaries <span class="op">=</span> salaries[[<span class="st">'School Type'</span>, <span class="st">'Mid-Career Median Salary'</span>]]</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dictionary to map school types to colors</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="st">'Engineering'</span>: <span class="st">'red'</span>, <span class="st">'Liberal Arts'</span>: <span class="st">'blue'</span>, <span class="st">'Party'</span>: <span class="st">'green'</span>, <span class="st">'State'</span>: <span class="st">'orange'</span>, <span class="st">'Ivy League'</span>: <span class="st">'purple'</span>}</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># create the side-by-side boxplot</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>mid_career_salaries.boxplot(by<span class="op">=</span><span class="st">'School Type'</span>, ax<span class="op">=</span>ax, vert<span class="op">=</span><span class="va">False</span>, grid<span class="op">=</span><span class="va">False</span>, widths<span class="op">=</span><span class="fl">0.6</span>, patch_artist<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co"># customize the plot</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, box <span class="kw">in</span> <span class="bu">enumerate</span>(ax.artists):</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    box.set_facecolor(colors[<span class="bu">list</span>(colors.keys())[i]])</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Mid-Career Median Salary'</span>)</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'School Type'</span>)</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Mid-Career Median Salaries by School Type'</span>)</span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="co"># show the plot</span></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mid_career_salaries <span class="op">=</span> salaries[[<span class="st">'School Type'</span>, <span class="st">'Mid-Career Median Salary'</span>]]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dictionary to map school types to colors</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="st">'Engineering'</span>: <span class="st">'red'</span>, <span class="st">'Liberal Arts'</span>: <span class="st">'blue'</span>, <span class="st">'Party'</span>: <span class="st">'green'</span>, <span class="st">'State'</span>: <span class="st">'orange'</span>, <span class="st">'Ivy League'</span>: <span class="st">'purple'</span>}</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># create the side-by-side boxplot</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>mid_career_salaries.boxplot(by<span class="op">=</span><span class="st">'School Type'</span>, ax<span class="op">=</span>ax, vert<span class="op">=</span><span class="va">False</span>, grid<span class="op">=</span><span class="va">False</span>, widths<span class="op">=</span><span class="fl">0.6</span>, patch_artist<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># customize the plot</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, box <span class="kw">in</span> <span class="bu">enumerate</span>(ax.artists):</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    box.set_facecolor(colors[<span class="bu">list</span>(colors.keys())[i]])</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Mid-Career Median Salary'</span>)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'School Type'</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Mid-Career Median Salaries by School Type'</span>)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co"># show the plot</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="dh-140-final-AL_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+<p><img src="dh-140-final-AL_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="salary-by-degree" class="level3">
 <h3 class="anchored" data-anchor-id="salary-by-degree">Salary by Degree</h3>
 <p>To examine the degree factor, we create a scatter plot that compares all mid-career salaries (10th pct., 25th pct., median, 75th pct., 90th) by major. From the plot below, we see that degrees in STEM fields tend to have the highest median pay, both in early and mid-career. For example, the top ten highest-paying degrees according to the dataset are all in STEM fields. This suggests that choosing a major in a STEM field may increase one’s chances of having a higher salary later in life. Additionally, we see that some degrees, such as those in education and religion, tend to have lower median pay, even in mid-career. This suggests that the choice of degree may have a significant impact on one’s earning potential.</p>
-<div class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>degrees2 <span class="op">=</span> degrees.reset_index().sort_values(by <span class="op">=</span> <span class="st">'Mid-Career Median Salary'</span>, ascending <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>degrees2 <span class="op">=</span> degrees2.reset_index()</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">12</span>))</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rc(<span class="st">'grid'</span>, alpha <span class="op">=</span> <span class="fl">.5</span>, color <span class="op">=</span> <span class="st">'#e3dfdf'</span>)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>matplotlib.rc(<span class="st">'axes'</span>, edgecolor <span class="op">=</span> <span class="st">'darkgrey'</span>)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> degrees2[<span class="st">'Starting Median Salary'</span>]</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> degrees2.index</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> degrees2[<span class="st">'Undergraduate Major'</span>]</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>plt.yticks(y, labels)</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> degrees2[<span class="st">'Mid-Career 10th Percentile Salary'</span>]</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>plt.scatter(x1, y, color<span class="op">=</span><span class="st">'#dc8580'</span>, label <span class="op">=</span> <span class="st">'10th pct. Mid-Career Salary'</span>)</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> degrees2[<span class="st">'Mid-Career 25th Percentile Salary'</span>]</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>plt.scatter(x2, y, color<span class="op">=</span><span class="st">'#f2e6b1'</span>, label <span class="op">=</span> <span class="st">'25th pct. Mid-Career Salary'</span>)</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>x3 <span class="op">=</span> degrees2[<span class="st">'Mid-Career Median Salary'</span>]</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>plt.scatter(x3, y, color<span class="op">=</span><span class="st">'#95dab6'</span>, label <span class="op">=</span> <span class="st">'Median Mid-Career Salary'</span>)</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>x4 <span class="op">=</span> degrees2[<span class="st">'Mid-Career 75th Percentile Salary'</span>]</span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>plt.scatter(x4, y, color<span class="op">=</span><span class="st">'#83b2d0'</span>, label <span class="op">=</span> <span class="st">'75th pct. Mid-Career Salary'</span>)</span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>x5 <span class="op">=</span> degrees2[<span class="st">'Mid-Career 90th Percentile Salary'</span>]</span>
-<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>plt.scatter(x5, y, color<span class="op">=</span><span class="st">'#7f87b2'</span>, label <span class="op">=</span> <span class="st">'90th pct. Mid-Career Salary'</span>)</span>
-<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Annual Salary ($)'</span>)</span>
-<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Major'</span>)</span>
-<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Median Salaries by Major'</span>)</span>
-<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.5</span>,<span class="dv">1</span>))</span>
-<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>degrees2 <span class="op">=</span> degrees.reset_index().sort_values(by <span class="op">=</span> <span class="st">'Mid-Career Median Salary'</span>, ascending <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>degrees2 <span class="op">=</span> degrees2.reset_index()</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">12</span>))</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rc(<span class="st">'grid'</span>, alpha <span class="op">=</span> <span class="fl">.5</span>, color <span class="op">=</span> <span class="st">'#e3dfdf'</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>matplotlib.rc(<span class="st">'axes'</span>, edgecolor <span class="op">=</span> <span class="st">'darkgrey'</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> degrees2[<span class="st">'Starting Median Salary'</span>]</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> degrees2.index</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> degrees2[<span class="st">'Undergraduate Major'</span>]</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>plt.yticks(y, labels)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> degrees2[<span class="st">'Mid-Career 10th Percentile Salary'</span>]</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>plt.scatter(x1, y, color<span class="op">=</span><span class="st">'#dc8580'</span>, label <span class="op">=</span> <span class="st">'10th pct. Mid-Career Salary'</span>)</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> degrees2[<span class="st">'Mid-Career 25th Percentile Salary'</span>]</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>plt.scatter(x2, y, color<span class="op">=</span><span class="st">'#f2e6b1'</span>, label <span class="op">=</span> <span class="st">'25th pct. Mid-Career Salary'</span>)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>x3 <span class="op">=</span> degrees2[<span class="st">'Mid-Career Median Salary'</span>]</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>plt.scatter(x3, y, color<span class="op">=</span><span class="st">'#95dab6'</span>, label <span class="op">=</span> <span class="st">'Median Mid-Career Salary'</span>)</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>x4 <span class="op">=</span> degrees2[<span class="st">'Mid-Career 75th Percentile Salary'</span>]</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>plt.scatter(x4, y, color<span class="op">=</span><span class="st">'#83b2d0'</span>, label <span class="op">=</span> <span class="st">'75th pct. Mid-Career Salary'</span>)</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>x5 <span class="op">=</span> degrees2[<span class="st">'Mid-Career 90th Percentile Salary'</span>]</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>plt.scatter(x5, y, color<span class="op">=</span><span class="st">'#7f87b2'</span>, label <span class="op">=</span> <span class="st">'90th pct. Mid-Career Salary'</span>)</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Annual Salary ($)'</span>)</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Major'</span>)</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Median Salaries by Major'</span>)</span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.5</span>,<span class="dv">1</span>))</span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="dh-140-final-AL_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+<p><img src="dh-140-final-AL_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
